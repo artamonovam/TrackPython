@@ -1,12 +1,15 @@
-salary = 5000  # Ежемесячная зарплата
-spend = 6000  # Траты за первый месяц
-months = 10  # Количество месяцев, которое планируется протянуть без долгов
-increase = 0.03  # Ежемесячный рост цен
+# TODO Напишите функцию find_common_participants
 
-money_capital = 0
-# TODO Рассчитайте подушку безопасности, чтобы протянуть 10 месяцев без долгов
-for i in range(months):
-    money_capital = money_capital + (spend - salary)
-    spend = spend + spend * increase
 
-print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(money_capital))
+participants_first_group = "Иванов|Петров|Сидоров"
+participants_second_group = "Петров|Сидоров|Смирнов"
+
+# TODO Провеьте работу функции с разделителем отличным от запятой
+def find_common_participants(part1, part2, spl = ","):
+    res1 = set(part1.split(spl))
+    res2 = set(part2.split(spl))
+    sort = list(res1.intersection(res2))
+    return sort
+
+print(find_common_participants(participants_first_group, participants_second_group, "|"))
+
